@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
 
 class Solution extends Component {
-    getHint(){
-        return "hint"
+    constructor(props){
+        super(props)
+        this.state = {
+            letterStatus: this.props.letterStatus,
+            solution: this.props.solution
+        }
     }
+
     render(){
-        const arr = ['_','_','_','_']
+        const {word,hint} = this.state.solution
+        const {letterStatus} = this.state
         return (
         <div>
             <div className="center">
-                {arr.map(letter => (<span>{letter} </span>))}
+                {word.split("").map(letter => (
+                <span>
+                    {letterStatus[letter] ? letter : "_ " }
+                </span>))}
             </div>
-            <div className="center">{this.getHint()}</div>
+            <div className="center">{hint}</div>
         </div>)
     }
 }

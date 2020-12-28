@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 class Letter extends Component {
   
     render(){
+        const {selected,letter ,eliminated} = this.props
         return (
-        <div>
-            <div className="center">a</div>
-        </div>)
+        <span className={selected ? "grey-text" : eliminated ? "eliminated" : null}>
+            {letter}
+        </span>)
     }
 }
 

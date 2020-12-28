@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 
 class Score extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            score: this.props.score
+        }
+    }
+
     getHint(){
         return "hint"
     }
     render(){
-        const arr = ['_','_','_','_']
+        const {score} = this.state
         return (
         <div>
-            <div className="center">100</div>
+            <div className="center">{score}</div>
         </div>)
     }
 }
