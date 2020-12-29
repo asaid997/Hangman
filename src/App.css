@@ -40,3 +40,6 @@
 .eliminated{
   text-decoration: line-through
 }
+.letters > span{
+  cursor: pointer;
+}

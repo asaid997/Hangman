@@ -2,19 +2,17 @@ import React, { Component } from 'react';
 import Letter from './Letter';
 
 class Letters extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            letterStatus: this.props.letterStatus
-        }
-    }
+
   
     render(){
-        const {letterStatus} = this.state
+        const {letterStatus} = this.props
+        const {word} = this.props.solution
+
         return (
-        <div className="center">
+        <div className="center letters">
             <div className="">Available letters:</div>
-            {Object.keys(letterStatus).map(letter => <Letter letter={letter} selected={letterStatus[letter]} eliminated={false}/>)}
+            {Object.keys(letterStatus).map(letter => <Letter key={letter} letter={letter} selected={letterStatus[letter]} 
+            partOfSolution={word.split("").find(l => l === letter)} letterClicked={this.props.letterClicked}/>)}
         </div>)
     }
 }
